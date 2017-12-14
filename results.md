@@ -34,3 +34,12 @@ function require(/* ... */) {
   return module.exports;
 }
 ```
+#### filter方法  
+该filter()方法创建一个新的匹配过滤条件的数组。   
+##### filter中具体参数
+通过例子说明是最简明的：   
+```js
+items = [{"name":"test1", "value":222}, {"name":"tttt", "value":"333"}]
+items.filter(function(){console.log(arguments)})
+```  
+filter默认回调函数中有参数 item, index, items
