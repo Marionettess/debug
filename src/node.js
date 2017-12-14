@@ -19,10 +19,10 @@ exports.log = log;
 //带色彩打印消息
 exports.formatArgs = formatArgs;
 
-//更新process.env.debug环境变量
+//更新process.env.debug环境变量,节省命名空间
 exports.save = save;
 
-//待测试的模块通过环境变DEBUG量赋值
+//待测试的模块通过环境变DEBUG量赋值,加载命名空间
 exports.load = load;
 
 //是否开启带颜色打印消息
@@ -120,7 +120,7 @@ function getDate() {
  * Invokes `util.format()` with the specified arguments and writes to stderr.
  * 用指定的参数调用'util.format()'，并写入错误流中
  */
-
+//
 function log() {
   return process.stderr.write(util.format.apply(util, arguments) + '\n');
 }
@@ -131,7 +131,7 @@ function log() {
  * @param {String} namespaces   参数  {String}
  * @api private
  */
-//更新process.env.debug环境变量
+//更新process.env.debug环境变量,节省命名空间
 function save(namespaces) {
   if (null == namespaces) {
     // If you set a process.env field to null or undefined, it gets cast to the 如果你设定了一个process.env场无效或未定义，它被转换为
@@ -148,7 +148,7 @@ function save(namespaces) {
  * @return {String} returns the previously persisted debug modes 返回以前运行的debug模式
  * @api private
  */
-//待测试的模块通过环境变debug量赋值
+//待测试的模块通过环境变debug量赋值,加载命名空间
 function load() {
   return process.env.DEBUG;
 }
@@ -159,7 +159,7 @@ function load() {
  * Create a new `inspectOpts` object in case `useColors` is set
  * differently for a particular `debug` instance.
  */
-//创建一个新的 'inspectOpts'对象以防止debug出现不同的'useColors'
+//创建一个新的 'inspectOpts'对象以防止'useColor'与建立的'debug'情况不同
 function init (debug) {
   debug.inspectOpts = {};
 
